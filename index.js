@@ -29,6 +29,11 @@ function startTimer(){
     seconds = 0;
     increaseSecond.innerHTML = "0" + 0;
    }
+   if (seconds > 0){
+      increaseMinutes.innerHTML = seconds;
+   }
+   
+   
 }
 
 // startTimer();

@@ -4,11 +4,11 @@ let minutes = 00;
 
 let hours = 00;
 
-let increaseSecond =document.getElementById("seconds");
+let increaseSecond =  document.getElementById("seconds");
 
-let increaseMinutes =document.getElementById("minutes");
+let increaseMinutes = document.getElementById("minutes");
 
-let increaseHours =document.getElementById("hours");
+let increaseHours = document.getElementById("hours");
 
 let startButton = document.getElementById("start");
 
@@ -16,7 +16,9 @@ let stopButton = document.getElementById("pause");
 
 let resetButton = document.getElementById("restart");
 
-function startTimer(){
+let interval;
+
+function startTiminig(){
    seconds++;
    if (seconds < 0) {
     increaseSecond.innerHTML = "0" + seconds;
@@ -32,8 +34,23 @@ function startTimer(){
    if (seconds > 0){
       increaseMinutes.innerHTML = seconds;
    }
-   
-   
+
 }
 
-// startTimer();
+function startTimer() {
+   // console.log("peace be still")
+   interval = setInterval(startTiminig);
+};
+
+function pauseTimer() {
+   clearInterval(interval)
+   console.log(" clear");
+};
+ 
+ function resetTimer(){
+   clearInterval(interval);
+   minutes ="00";
+   seconds="00";
+   increaseSecond.innerHTML = seconds;
+   increaseMinutes.innerHTML = minutes;
+};
